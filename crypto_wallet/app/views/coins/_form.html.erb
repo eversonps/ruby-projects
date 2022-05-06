@@ -1,33 +1,36 @@
-<%= form_with(model: coin, local: true) do |form| %>
+<%= form_with(model: coin) do |form| %>
   <% if coin.errors.any? %>
-    <div id="error_explanation">
+    <div style="color: red">
       <h2><%= pluralize(coin.errors.count, "error") %> prohibited this coin from being saved:</h2>
 
       <ul>
-      <% coin.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% coin.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :description %>
+  <div>
+    <%= form.label :description, style: "display: block" %>
     <%= form.text_field :description %>
   </div>
 
-  <div class="field">
-    <%= form.label :acronym %>
+  <div>
+    <%= form.label :acronym, style: "display: block" %>
     <%= form.text_field :acronym %>
   </div>
 
-  <div class="field">
-    <%= form.label :url_image %>
+  <div>
+    <%= form.label :url_image, style: "display: block" %>
     <%= form.text_field :url_image %>
-    <%= image_tag coin.url_image, size: "25x25" %>
   </div>
 
-  <div class="actions">
+  <div>
+    <%= form.label :mining_type, style: "display: block" %>
+    <%= form.select("mining_type_id", @mining_type_options, { include_blank: "Selecione" }) %>
+  </div>
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

@@ -1,7 +1,15 @@
-<h1>Seja bem vindo!</h1>
-<p><strong>Data:</strong> <%= date_br(Date.today) %></p>
+<h1>Seja Bem-Vindo!</h1>
+
+<p>O idioma utilizado nessa aplicação é: <%= locale %></p>
+<p>Data: <%= l(Date.today) %></p>
+<p><%= t("Hello") %></p>
+
 <ul>
-    <li>
-          <%= link_to "Cadastro de Moedas", coins_path %>
-    </li>
+  <li>
+    <%= link_to "Moedas", coins_path %>
+  </li>
+
+  <li>
+    <%= link_to "Tipos de Mineração", mining_types_path %>
+  </li>
 </ul>
