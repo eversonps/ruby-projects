@@ -5,12 +5,20 @@
 <h2><%= session[:curso] %></h2>
 
 <div id="coins">
-  <% @coins.each do |coin| %>
-    <%= render coin %>
-    <p>
-      <%= link_to t("links.show"), coin %>
-    </p>
-  <% end %>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Descrição:</th>
+          <th>Sigla:</th>
+          <th>Imagem:</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @coins.each do |coin| %>
+        <%= render coin %>
+      <% end %>
+      </tbody>
+    </table> 
 </div>
 
 <%= link_to "Nova moeda", new_coin_path %>

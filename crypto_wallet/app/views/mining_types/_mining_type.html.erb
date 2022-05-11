@@ -1,12 +1,16 @@
-<div id="<%= dom_id mining_type %>">
-  <p>
-    <strong>Description:</strong>
+<tr id="<%= dom_id mining_type %>"> 
+  <td>
+    <strong></strong>
     <%= mining_type.description %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Acronym:</strong>
+  <td>
+    <strong></strong>
     <%= mining_type.acronym %>
-  </p>
+  </td>
 
-</div>
+  <td>
+    <strong></strong>
+    <%= link_to t("links.show"), mining_type %>
+  </td>
+</tr>
