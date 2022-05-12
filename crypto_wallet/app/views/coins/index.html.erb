@@ -1,16 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Moedas</h1>
-<h2><%= cookies[:curso] %></h2>
-<h2><%= session[:curso] %></h2>
 
-<div id="coins">
+
+<div id="coins" class="p-4">
+    <h1><%= "#{Coin.model_name.human(count: @coins.count)}" %></h1>
+
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>Descrição:</th>
-          <th>Sigla:</th>
-          <th>Imagem:</th>
+          <th><%= @coins.human_attribute_name(:description)%></th>
+          <th><%= @coins.human_attribute_name(:description)%></th>
+          <th><%= @coins.human_attribute_name(:description)%></th>
         </tr>
       </thead>
       <tbody>
@@ -18,7 +18,9 @@
         <%= render coin %>
       <% end %>
       </tbody>
-    </table> 
+    </table>
+
+    <%= link_to t("new.coin"), new_coin_path, class: "btn btn-primary" %> 
 </div>
 
-<%= link_to "Nova moeda", new_coin_path %>
+

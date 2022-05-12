@@ -1,19 +1,10 @@
-<p>
-  <%= link_to "Português", root_path(locale: "pt-BR") %>
-  <%= link_to "English", root_path(locale: "en") %>
-</p>
-
-<h1>Seja Bem-Vindo!</h1>
-<p>O idioma utilizado nessa aplicação é: <%= t("actual_locale") %></p>
-<p>Data: <%= l(Date.today) %></p>
-<p><%= t("Hello") %></p>
-
-<ul>
-  <li>
-    <%= link_to "Moedas", coins_path %>
-  </li>
-
-  <li>
-    <%= link_to "Tipos de Mineração", mining_types_path %>
-  </li>
-</ul>
+<div class="jumbotron p-5 m-3 bg-light">
+  <h1 class="display-4"><%= t("welcome") %></h1>
+  <p class="lead"><%= t("messages.welcome") %></p>
+  <hr class="my-4">
+  <p><%= t("messages.menu") %></p>
+  <p class="lead">
+    <%= link_to "#{Coin.model_name.human}", coins_path, class: "btn btn-primary btn-lg", role: "button" %>
+    <%= link_to "#{MiningType.model_name.human}", mining_types_path, class: "btn btn-primary btn-lg"%>
+  </p>
+</div>
