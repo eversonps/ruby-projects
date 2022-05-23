@@ -1,0 +1,25 @@
+<h1><%= action_message %> Assunto</h1>
+<hr>
+
+<% if @subject.errors.any? %>
+  <div class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <ul>
+      <% @subject.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="row">
+  <div class="col-lg-6">
+    <%= form_with(model: [:admins_backoffice, @subject], local: true) do |form| %>
+      <div class="form-group">
+        <%= form.label :description %>
+        <%= form.text_field :description, class: "form-control", placeholder:"Digite a descrição do assunto"%>
+      </div>
+
+      <button class="btn btn-default" type="submit">Salvar</button>
+    <% end %>
+  </div>
+</div>

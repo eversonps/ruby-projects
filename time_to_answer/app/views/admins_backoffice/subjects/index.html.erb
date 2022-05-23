@@ -1,0 +1,38 @@
+<h1>Listando Assuntos/Áreas</h1>
+<div class="card-body">
+    <div class="table-responsive">
+        <div class="row"><div class="col-sm-12"><table class="table table-bordered dataTable" id="dataTable" role="grid" aria-describedby="dataTable_info" style="width: 100%;" width="100%" cellspacing="0">
+            <thead>
+                <tr role="row"><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 151px;" aria-label="Name: activate to sort column ascending">Id</th><th class="sorting sorting_desc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 233px;" aria-label="Position: activate to sort column ascending" aria-sort="descending">Descrição</th>
+                <th class="sorting sorting_desc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 233px; text-align: center;" aria-label="Position: activate to sort column ascending" aria-sort="descending">
+                  <%= link_to new_admins_backoffice_subject_path, class: "btn btn-success btn-circle" do %>
+                    <i class="fa fa-plus"></i>
+                  <% end %>
+                </th>
+                </tr>
+            </thead>
+            <tbody>             
+              <% @subjects.each do |subject|%>
+                <tr class="even">
+                    <td class=""><%= subject.id %></td>
+                    <td class="sorting_1"><%= subject.description %></td>
+                    <td class="text-center">
+                      <%= link_to edit_admins_backoffice_subject_path(subject), class: "btn btn-primary btn-circle" do%>
+                        <i class="fa fa-edit"></i>
+                      <% end %>
+
+                      <%= link_to admins_backoffice_subject_path(subject), class: "btn btn-danger btn-circle", data: {confirm: "Deseja realmente excluir esse assunto?"},method: :delete do%>
+                        <i class="fa fa-minus"></i>
+                      <% end %>
+                    </td>
+                </tr>
+              <% end %>
+            </tbody>
+        </table>
+
+        <div class="text-center">
+          <%= paginate @subjects %>
+        </div>
+      </div>
+    </div>
+</div>
