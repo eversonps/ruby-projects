@@ -33,11 +33,27 @@ namespace :dev do
   desc "Adiciona questões e respostas"
   task add_answers_and_questions: :environment do
     Subject.all.each do |subject|
-      Question.create!(
-        rand(5..10).times do |i|
-          description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}"  ,
-          subject: subject
-        )
+      rand(5..10).times do |i|
+        params = { question: {
+          description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
+          subject: subject,
+          answers_attributes: []
+        }}
+
+        rand(2..5).times do |j|
+          params[:question][answers_attributes].push({
+            description: "#{Faker::Lorem.setence}",
+            correct: false
+          })
+        end
+
+        index = rand(params[:question][answers_attributes].size)
+        params[:question][answers_attributes][index] = {
+          description: "#{Faker::Lorem.setence}",
+          correct: true
+        }
+        
+        Question.create!(params[:question])
       end
     end
   end
@@ -73,7 +89,7 @@ namespace :dev do
   end
 
   private 
-  
+
   def show_spinner(msg_start, msg_end = "Concluido com sucesso!")
     spinner = TTY::Spinner.new("[:spinner] #{msg_start}")
     spinner.auto_spin

@@ -25,6 +25,7 @@ class AdminsBackoffice::SubjectsController < AdminsBackofficeController
       render :index
     end
   end
+  
   def edit
   end
 

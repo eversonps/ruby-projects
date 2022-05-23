@@ -1,5 +1,4 @@
-class AdminsBackoffice::QuestionsController < ApplicationController
-    class AdminsBackoffice::QuestionsController < AdminsBackofficeController
+class AdminsBackoffice::QuestionsController < AdminsBackofficeController
   before_action :set_question, only: [:edit, :update, :destroy]
   before_action :get_subjects, only: [:new, :edit]
 
@@ -55,5 +54,4 @@ class AdminsBackoffice::QuestionsController < ApplicationController
   def get_subjects
     @subjects = Subject.all
   end
-end
 end
