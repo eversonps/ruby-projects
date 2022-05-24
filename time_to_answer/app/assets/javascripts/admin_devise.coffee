@@ -3,4 +3,3 @@
 //= require jquery.easing/jquery.easing.min
 //= require sb-admin-2.min
 //= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl.js
-//= require cocoon
