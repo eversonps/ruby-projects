@@ -29,6 +29,15 @@ namespace :dev do
       password_confirmation: DEFAULT_PASSWORD
     )
   end
+
+  desc "Reseta os contadores dos assuntos"
+  task reset_subject_counter: :environment do
+    show_spinner("Resetando contador dos assuntos...") do
+      Subject.find_each do |subject|
+        Subject.reset_counters(subject.id, :questions)
+      end
+    end
+  end
   
   desc "Adiciona questões e respostas"
   task add_answers_and_questions: :environment do

@@ -1,16 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>TimeToAnswer</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application' %>
+    <%= stylesheet_link_tag    'user_devise' %>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>TimeToAnswer</title>
   </head>
 
-  <body>
-    <h1>LAYOUT USER DEVISE</h1>
+  <body class="login">
     <%= yield %>
+
+
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'user_devise' %>
+
+    <% unless resource.errors.empty? %>
+      <% resource.errors.full_messages.each do |msg| %>
+          <%= javascript_tag do %>
+          $.bootstrapGrowl('<%= msg %>', {
+          type: 'danger',
+          align: 'right',
+          allow_dismiss: true,
+          stackup_spacing: 10
+          });
+          <% end %>
+      <% end %>
+    <% end %>
   </body>
 </html>
+
+<div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
