@@ -21,7 +21,9 @@
           <% end %>
 
           <div class="actions">
-            <%= f.submit "Log in", class: "btn btn-primary w-100", style: "float: none; margin-left: 0px;" %>
+            <%= f.submit "Log in", class: "btn btn-primary w-60", style: "float: none; margin-left: 0px;" %>
+            <%= link_to 'Esqueceu sua senha?', new_user_password_path,
+            class:"reset_pass" %>
           </div>
 
           <div class="clearfix"></div>

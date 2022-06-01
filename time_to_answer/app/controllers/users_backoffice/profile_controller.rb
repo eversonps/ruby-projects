@@ -1,6 +1,6 @@
 class UsersBackoffice::ProfileController < UsersBackofficeController
-  before_action :set_user
   before_action :verify_password, only: [:update]
+  before_action :set_user
   
   def edit
     @user.build_user_profile if @user.user_profile.blank?
