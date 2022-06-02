@@ -15,7 +15,7 @@
               <% @questions.each do |question|%>
                 <tr class="even">
                     <td class=""><%= question.id %></td>
-                    <td class="sorting_1"><%= question.description.truncate(50) %></td>
+                    <td class="sorting_1"><%= sanitize question.description.truncate(50) %></td>
                     <td class="sorting_1"><%= question.subject.description.truncate(30) %></td>
                     <td class="text-center">
                       <%= link_to edit_admins_backoffice_question_path(question), class: "btn btn-primary btn-circle" do%>

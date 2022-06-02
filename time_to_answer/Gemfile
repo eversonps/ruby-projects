@@ -9,7 +9,11 @@ gem 'faker'
 gem 'kaminari', '1.1.1'
 gem 'kaminari-i18n'
 gem "cocoon"
-
+gem "prawn-rails"
+gem "redis"
+gem "hiredis"
+gem "trix"
+gem "searchkick"
 
 gem 'rails-i18n', '~> 5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

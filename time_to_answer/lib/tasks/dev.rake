@@ -39,6 +39,15 @@ namespace :dev do
     end
   end
   
+  desc "Adiciona respostas no redis"
+  task add_answers_to_redis: :environment do
+    show_spinner("Adicionando questões no redis...") do
+      Answer.all.each do |answer|
+        Rails.cache.write(answer.id, "#{answer.question_id}@@#{answer.correct}")
+      end
+    end
+  end
+
   desc "Adiciona questões e respostas"
   task add_answers_and_questions: :environment do
     Subject.all.each do |subject|
